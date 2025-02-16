@@ -1,5 +1,5 @@
 // Contraseña predefinida
-const CONTRASENA = "2021";
+const CONTRASENA = "2022";
 
 // Variable para almacenar la contraseña ingresada
 let contrasenaIngresada = "";
