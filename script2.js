@@ -36,7 +36,7 @@ function spawnHeart() {
             document.body.appendChild(countdownMessage);
 
             const countdownInterval = setInterval(() => {
-                countdownMessage.textContent = `Felicidades Sra. Montegro! ❤️🎉\n Pasando al siguiente nivel en ${countdown} segundos...`;
+                countdownMessage.textContent = `Felicidades Srta. ANDREA! ❤️🎉\n Pasando al siguiente nivel en ${countdown} segundos...`;
                 countdown--;
                 
                 if (countdown < 0) {
