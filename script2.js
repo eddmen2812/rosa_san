@@ -9,7 +9,11 @@ function spawnHeart() {
 
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.textContent = "❤️";
+    heart.textContent = "馃懚馃徎";
+    
+    // Aumentamos el tama帽o del coraz贸n
+    heart.style.fontSize = "40px"; // Puedes ajustar este valor seg煤n lo necesites
+    
     heart.style.left = `${Math.random() * 90}vw`;
     heart.style.top = `-50px`;
 
@@ -21,9 +25,9 @@ function spawnHeart() {
 
         if (score === 10) {
             /*clearInterval(heartInterval);
-            alert("¡Felicidades! ❤️🎉");*/
+            alert("隆Felicidades! 鉂わ笍馃帀");*/
             
-            // Añadir mensaje de cuenta regresiva
+            // A帽adir mensaje de cuenta regresiva
             let countdown = 5;
             const countdownMessage = document.createElement("div");
             countdownMessage.style.position = "fixed";
@@ -36,7 +40,7 @@ function spawnHeart() {
             document.body.appendChild(countdownMessage);
 
             const countdownInterval = setInterval(() => {
-                countdownMessage.textContent = `Felicidades Srta. ANDREA! ❤️🎉\n Pasando al siguiente nivel en ${countdown} segundos...`;
+                countdownMessage.textContent = `Felicidades Madrecita! 鉂わ笍馃帀\n Pasando al siguiente nivel en ${countdown} segundos...`;
                 countdown--;
                 
                 if (countdown < 0) {
@@ -56,7 +60,9 @@ function spawnHeart() {
 
 heartInterval = setInterval(spawnHeart, 1000);
 
-// Partículas en el fondo
+// El resto del c贸digo se mantiene igual...
+
+// Part铆culas en el fondo
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -84,7 +90,7 @@ function drawParticles() {
     for (let particle of particles) {
         ctx.fillStyle = `rgba(255, 0, 100, ${particle.opacity})`;
         ctx.font = `${particle.size}px Arial`;
-        ctx.fillText("❤️", particle.x, particle.y);
+        ctx.fillText("馃懚", particle.x, particle.y);
         particle.y -= particle.speedY;
 
         if (particle.y < -10) {
@@ -100,22 +106,22 @@ drawParticles();
 
 
 //////////
-// Agregar este código en script2.js (página del juego)
+// Agregar este c贸digo en script2.js (p谩gina del juego)
 function initializeAudio() {
     const musica = document.getElementById("musica");
     
-    // Recuperar el tiempo de reproducción guardado
+    // Recuperar el tiempo de reproducci贸n guardado
     const savedTime = localStorage.getItem('audioTime');
     if (savedTime) {
         musica.currentTime = parseFloat(savedTime);
     }
     
-    // Guardar el tiempo de reproducción periódicamente
+    // Guardar el tiempo de reproducci贸n peri贸dicamente
     setInterval(() => {
         localStorage.setItem('audioTime', musica.currentTime);
     }, 1000);
     
-    // Manejar el final de la canción
+    // Manejar el final de la canci贸n
     musica.addEventListener('ended', function() {
         musica.currentTime = 0;
         musica.play();
@@ -129,13 +135,13 @@ function initializeAudio() {
     }, { once: true });
     
     musica.play().catch(function(error) {
-        console.log("Reproducción automática bloqueada:", error);
+        console.log("Reproducci贸n autom谩tica bloqueada:", error);
     });
 }
 
 document.addEventListener("DOMContentLoaded", initializeAudio);
 
-// Antes de que la página se cierre o el usuario navegue
+// Antes de que la p谩gina se cierre o el usuario navegue
 window.addEventListener('beforeunload', function() {
     const musica = document.getElementById("musica");
     localStorage.setItem('audioTime', musica.currentTime);
