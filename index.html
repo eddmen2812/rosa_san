@@ -7,30 +7,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>Evelyn</title>
+    <title>Madrecita</title>
+    <style>
+        /* Estilos adicionales para los botones */
+        .container-botones {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            min-height: 80px;
+        }
+        
+        .botones {
+            background: linear-gradient(to bottom, #ff0000, #cc0000);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .botones:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        #no-btn {
+            background: linear-gradient(to bottom, #444, #222);
+            position: fixed; /* Aseguramos que use posici贸n fija */
+            z-index: 1000; /* Siempre visible por encima de otros elementos */
+        }
+    </style>
 </head>
 
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
     <div class="greetings">
+        <span>M</span>
         <span>A</span>
-        <span>N</span>
-        <span>D</span>
-        <span>R</span>
-        <span>E</span>
+        <span>M</span>
+        <span>I</span>
+        <span>T</span>
         <span>A</span>
-
     </div>
     <div style="text-align: center;" class="description">
-        <span >La quiero mucho 💝 de 🐣 <br> ¿LE GUSTARÍA SER MI SAN VALENTÍN? <br>Me pase dos días y no me importa! 😅😅</span>
+        <span>La quiero mucho Madrecita de mi 馃挐<br> 驴LE GUSTAR脥A TENER UN NIETO?</span>
     </div>
-    <div class="button">
-        <button class="botones">
-            <a href="juego.html" style="color: #fff;">¡PRESIONE PARA VER EL REGALO!</a>
+    <div class="container-botones">
+        <button class="botones" id="si-btn">
+            <a href="juego.html" style="color: #fff; text-decoration: none;">S脥</a>
         </button>
+        <button class="botones" id="no-btn">NO</button>
     </div>
 
-    <!-- Créditos -->
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noBtn = document.getElementById('no-btn');
+            
+            // Configuraci贸n inicial para asegurar que el bot贸n sea posicionado absolutamente
+            const containerBotones = document.querySelector('.container-botones');
+            containerBotones.style.height = '100px'; // Altura fija para el contenedor
+            containerBotones.style.position = 'relative';
+            noBtn.style.position = 'absolute';
+            
+            // Funci贸n para mover el bot贸n "No" cuando el cursor se acerca
+            function moveButton(e) {
+                if (e) e.preventDefault(); // Prevenir comportamiento por defecto
+                
+                // Obtener dimensiones de la ventana
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                
+                // Calcular posici贸n aleatoria considerando el tama帽o del bot贸n
+                const btnWidth = noBtn.offsetWidth;
+                const btnHeight = noBtn.offsetHeight;
+                
+                // Asegurar que el bot贸n permanezca completamente visible en la pantalla
+                const maxX = windowWidth - btnWidth - 20;
+                const maxY = windowHeight - btnHeight - 20;
+                
+                // Generar posici贸n aleatoria
+                const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+                const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+                
+                // Mover el bot贸n a una posici贸n absoluta respecto a la ventana
+                noBtn.style.position = 'fixed'; // Usamos fixed para posici贸n relativa a la ventana
+                noBtn.style.left = randomX + 'px';
+                noBtn.style.top = randomY + 'px';
+                noBtn.style.zIndex = '1000'; // Asegurar que est茅 sobre otros elementos
+                
+                // Mantener visible el bot贸n
+                noBtn.style.display = 'block';
+                noBtn.style.opacity = '1';
+            }
+            
+            // Posicionar el bot贸n inicialmente
+            setTimeout(() => {
+                moveButton();
+            }, 500);
+            
+            // Eventos para dispositivos de escritorio (mouse)
+            noBtn.addEventListener('mouseover', moveButton);
+            
+            // Eventos para dispositivos m贸viles (touch)
+            noBtn.addEventListener('touchstart', moveButton);
+            
+            // Tambi茅n mover el bot贸n al hacer clic (por si acaso)
+            noBtn.addEventListener('click', moveButton);
+        });
+    </script>
 </body>
 
 </html>
