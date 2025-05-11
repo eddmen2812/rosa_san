@@ -9,7 +9,7 @@ function spawnHeart() {
 
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.textContent = "馃懚馃徎";
+    heart.textContent = "👧🏻";
     
     // Aumentamos el tama帽o del coraz贸n
     heart.style.fontSize = "40px"; // Puedes ajustar este valor seg煤n lo necesites
@@ -40,7 +40,7 @@ function spawnHeart() {
             document.body.appendChild(countdownMessage);
 
             const countdownInterval = setInterval(() => {
-                countdownMessage.textContent = `Felicidades Madrecita! 鉂わ笍馃帀\n Pasando al siguiente nivel en ${countdown} segundos...`;
+                countdownMessage.textContent = `Felicidades Madrecita! 🥰\n Pasando al siguiente nivel en ${countdown} segundos...`;
                 countdown--;
                 
                 if (countdown < 0) {
@@ -90,7 +90,7 @@ function drawParticles() {
     for (let particle of particles) {
         ctx.fillStyle = `rgba(255, 0, 100, ${particle.opacity})`;
         ctx.font = `${particle.size}px Arial`;
-        ctx.fillText("馃懚", particle.x, particle.y);
+        ctx.fillText("👧🏻", particle.x, particle.y);
         particle.y -= particle.speedY;
 
         if (particle.y < -10) {
@@ -135,7 +135,7 @@ function initializeAudio() {
     }, { once: true });
     
     musica.play().catch(function(error) {
-        console.log("Reproducci贸n autom谩tica bloqueada:", error);
+        console.log("Reproducción automática bloqueada:", error);
     });
 }
 
